@@ -1,3 +1,4 @@
+// This is the app.js for the Course-assignment for JSS-servers!
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var app = express();
 
+
+var memesRouter = require('./routes/memes');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -18,14 +21,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 
 app.use('/', indexRouter);
-
+app.use('/memes', memesRouter);
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function (req, res, next)
+{
 	next(createError(404));
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res, next)
+{
 	// set locals, only providing error in development
 	res.locals.message = err.message;
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
