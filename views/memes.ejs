@@ -20,16 +20,32 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <% if (Array.isArray(memes)) { %>
+          <% memes.forEach(function(meme) { %>
+            <tr>
+              <!--ID-->
             <th scope="row">
+              <%= meme.id %>
             </th>
+
             <td>
+              <%= meme.name %>
             </td>
+            <!--Size-->
             <td>
+              <%= meme.width %> x <%= meme.height %>
             </td>
+            <!--Image-->
             <td>
+              <img src="<%= meme.url %>" width="100" alt="<%= meme.name %>">
             </td>
-          </tr>
+            <!--Options-->
+            <td>
+              <button class="btn btn-primary">Details</button>
+            </td>
+            </tr>
+          <% }); %>
+          <% } %>
         </tbody>
       </table>
     </section>

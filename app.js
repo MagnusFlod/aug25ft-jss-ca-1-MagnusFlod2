@@ -1,14 +1,31 @@
 // This is the app.js for the Course-assignment for JSS-servers!
+var memesApiFile = require('./memesAPI');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
+var axios = require('axios');
 var app = express();
 
-
 var memesRouter = require('./routes/memes');
+
+function loadMemes()
+{
+	// Getting the API-data
+	axios.get('http://jss.restapi.co.za/memes')
+	// Sending the resultet data as first argument(response)
+	.then(function (response)
+	{
+		// Calling the function to the memesAPI-file and puts the memes into the array of memes
+		memesApiFile.setMemes(response.data.memes);
+		console.log('Memes loaded');
+	});
+}
+
+loadMemes();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
