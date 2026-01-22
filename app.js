@@ -12,6 +12,7 @@ var indexRouter = require('./routes/index');
 var memesRouter = require('./routes/memes');
 var memeRouter = require('./routes/meme');
 var loginRouter = require('./routes/login');
+var logoutRouter = require('./routes/logout');
 var axios = require('axios');
 var app = express();
 
@@ -60,14 +61,13 @@ app.use(function(req, res, next)
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
-
 
 
 app.use('/', indexRouter);
 app.use('/memes', memesRouter);
 app.use('/meme', memeRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next)
 {

@@ -1,22 +1,53 @@
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">Meme Central</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+  <div class="container-fluid">
+
+    <!--Logo-->
+    <a class="navbar-brand d-flex align-items-center" href="/memes">
+        <img src="/images/logo.png" alt="Central logo" height="40" class="me-2">
+        <span>Meme Central</span>
+    </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav align-items-center">
+
+            <!--Static links-->
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/memes">Memes</a>
                 </li>
+                <!--If a user is logged in-->
+                <% if (isLoggedIn) { %><!--Embedded JavaScript-->
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Sign in</a>
+                    <span class="nav-link">
+                    <!--We welcome that user with their specified username-->
+                    Welcome, <strong><%= user.username %></strong>
+                    </span>
                 </li>
-            </ul>
-        </div>
+                <li class="nav-item">
+                    <!--A logout-button is displayed while logged in-->
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <!--Else if user is not logged in-->
+            <% } else { %><!--EJS-->
+            <li class="nav-item">
+                <!--Page will render you as a Guest-->
+                <span class="nav-link">Guest</span>
+            </li>
+            <li class="nav-item">
+                <!--A Sign in-button is displayed-->
+                <a class="nav-link" href="/login">Sign in</a>
+            </li>
+            <% } %><!--EJS-->
+      </ul>
     </div>
+  </div>
 </nav>
