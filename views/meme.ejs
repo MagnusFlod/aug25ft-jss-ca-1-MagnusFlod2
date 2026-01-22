@@ -11,7 +11,13 @@
 <body class="position-relative" data-bs-spy="scroll">
   <%- include('./partials/navbar.ejs') %>
     <section class="container">
+        <h2><%= meme.name %></h2>
 
+        <img src="<%= meme.url %>" alt="<%= meme.name %>" width="300">
+
+        <p><strong>ID:</strong> <%= meme.id %></p>
+        <p><strong>Size:</strong> <%= meme.width %> x <%= meme.height %></p>
+        <p><strong>URL:</strong> <%= meme.url %></p>
     </section>
 
     <%- include('./partials/scripts.ejs') %>

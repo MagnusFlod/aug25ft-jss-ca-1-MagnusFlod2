@@ -41,7 +41,8 @@
             </td>
             <!--Options-->
             <td>
-              <button class="btn btn-primary">Details</button>
+              <% if (isLoggedIn) { %>
+              <button class="details-btn btn btn-primary" data-id="<%= meme.id %>">Details</button><% } %>
             </td>
             </tr>
           <% }); %>
