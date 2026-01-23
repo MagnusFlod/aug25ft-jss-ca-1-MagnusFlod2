@@ -17,9 +17,10 @@ document.addEventListener("DOMContentLoaded", function()
     button.addEventListener("click", function()
     {
       // Getting each unique id-information
-      const memeID = button.dataset.id;
+      const memeID = Number(button.dataset.id);
 
       console.log("Meme ID: ", memeID);
+
       // Fetching meme-router
       fetch("/meme",
       {
@@ -27,17 +28,19 @@ document.addEventListener("DOMContentLoaded", function()
         method: "POST",
         headers:
         {
-          "Content-type": "application/json"
+          "Content-Type": "application/json"
         },
+        credentials: "same-origin",
         // Sending the data in json-format
-        body: JSON.stringify
-        ({
-          memeID: memeID
-        })
+        body: JSON.stringify({ memeID: memeID })
       })
-      .then(function()
+      .then(function(response)
       {
-        window.location.href = "/meme";
+        // Redirect only after POST is completed
+        if (response.ok)
+        {
+          window.location.href = "/meme";
+        }
       });
     });
   });

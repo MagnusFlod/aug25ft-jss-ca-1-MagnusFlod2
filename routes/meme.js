@@ -15,6 +15,18 @@ router.post('/', function(req, res, next)
         return meme.id == memeID;
     });
 
+    if(!req.session.viewedMemes)
+    {
+        req.session.viewedMemes = [];
+    }
+
+    if(!req.session.viewedMemes.includes(memeID))
+    {
+        req.session.viewedMemes.push(memeID);
+    }
+
+    console.log('Session viewedMemes AFTER push!! ', req.session.viewedMemes);
+
     res.status(200).end();
 });
 

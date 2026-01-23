@@ -10,6 +10,12 @@
 <body class="position-relative" data-bs-spy="scroll">
   <%- include('./partials/navbar.ejs') %>
     <section class="container">
+      <form method="POST" action="/memes/search" class="mb-3 mt-4">
+        <div class="input-group">
+          <input type="text" name="search" class="form-control" placeholder="Search memes by name">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </div>
+      </form>
       <table class="table" id="table">
         <thead>
           <tr>
@@ -22,7 +28,7 @@
         <tbody>
           <% if (Array.isArray(memes)) { %>
           <% memes.forEach(function(meme) { %>
-            <tr>
+            <tr class="<%= viewedMemes.includes(meme.id) ? 'table-success' : '' %>">
               <!--ID-->
             <th scope="row">
               <%= meme.id %>
