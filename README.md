@@ -1,20 +1,66 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/j9eGBSx0)
-﻿![](http://images.restapi.co.za/pvt/Noroff-64.png)
-# Noroff
-# Back-end Development Year 1
-### JavaScript Server - Course Assignment 1 <sup>V2</sup>
+## Meme Central - JSS Server-Side Backend-Application
 
-Startup code for Noroff back-end development 1 - JavaScript Server course.
+## Description
+Meme Central is a server-side implemented web application built with Node.js and Express. 
+The application displays a list of memes from and external API. It allows logged-in users to view detailed information about each meme.
 
-Instruction for the course assignment is in the LMS (Moodle) system of Noroff.
-[https://lms.noroff.no](https://lms.noroff.no)
+Guest users can browse the memes in the meme-central. They can also search for memes. But logged in users can also view the meme-details.
 
-![](http://images.restapi.co.za/pvt/ca_important.png)
 
-You will not be able to make any submission after the deadline of the course assignment. Make sure to make all your commit **BEFORE** the deadline
+## Technologies Used
+- Node.js
+- Express.js
+- EJS(Embedded JavaScript)
+- Passport.js(Local strategy)
+- Express-session
+- Axios
+- Bootstrap 5
+- JavaScript(Both Frontend and Backend)
 
-![](http://images.restapi.co.za/pvt/help.png)
 
-If you are unsure of any instructions for the course assignment, contact out to your teacher on **Microsoft Teams**.
+## External Libraries / Packages
 
-**REMEMBER** Your Moodle LMS submission must have your repository link **AND** your Github username in the text file.
+
+Installed via NPM:
+
+- express
+- ejs
+- passport-local
+- express-session
+- axios
+- cockie parser
+- morgan
+
+Bootstrap is used locally
+
+
+## Authentication
+
+The application uses Passport.js with a local authentication strategy.
+User credentials are stored in a local JSON file for testing purposes.
+This application does not have a Sign-Up option.
+You therefore need to use test-users if you want to log into this application.
+
+## Test Users
+User-names and passwords can be found inside the file: users.json. Path: aug25ft-jss-ca-1-MagnusFlod/users.json>
+
+Test users:
+
+- **Username:** Alice | **Password** Annie34
+- **Username:** John | **Password** Zwanzig
+- **Username:** Gandalf | **Password** MinasTirith
+
+## Installation Instructions
+
+1. Clone the repository
+2. Navigate to the correct folder in the terminal using cd(change directory) to the priject folder
+3. Install dependencies: npm install
+4. Start the server by writing npm start
+5. Open a browser and go to http://localhost:3000
+
+## Application Features
+
+* Meme overview page that displays 20 memes from an external API
+* Search functionality
+* Login system with guest and test users
+* Meme details page. Only accessible from loggen in users
