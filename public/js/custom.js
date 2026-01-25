@@ -1,13 +1,10 @@
 
-function open_new_window(location)
-{
-  window.location.href = location;
-}
 
 // When the document is loaded several functions are ready to run
 document.addEventListener("DOMContentLoaded", function()
 {
-  // Assigning a variable for details-buttons for every meme
+  // Assigning a variable for details-buttons with class: 'details-btn' for every meme
+  // Inside memes.ejs is: <button class="details-btn" data-id="123">Details</button>. Class is for button. ID is for the specific meme
   const detailButtons = document.querySelectorAll(".details-btn");
 
   // Iterating through every function/buttons
@@ -16,10 +13,8 @@ document.addEventListener("DOMContentLoaded", function()
     // Click-event for one button
     button.addEventListener("click", function()
     {
-      // Getting each unique id-information
+      // Getting each unique id-information. Using 'Number' because 'dataset' always provides a string, but id is a number
       const memeID = Number(button.dataset.id);
-
-      console.log("Meme ID: ", memeID);
 
       // Fetching meme-router
       fetch("/meme",

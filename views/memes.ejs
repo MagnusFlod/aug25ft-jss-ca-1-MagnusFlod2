@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--This page displays all the memes-->
 <html lang="en">
 
 <head>
@@ -16,9 +16,10 @@
           <button class="btn btn-outline-secondary" type="submit">Search</button>
         </div>
       </form>
-      <table class="table" id="table">
+      <table class="table" id="table"><!--Table start-->
         <thead>
           <tr>
+            <!--Main columns-->
             <th scope="col">ID</th>
             <th scope="col">Size</th>
             <th scope="col">Image</th>
@@ -26,9 +27,10 @@
           </tr>
         </thead>
         <tbody>
+          <!--If the particular memes are in the array, a for-loop iterates through every meme and displays the meme-details-->
           <% if (Array.isArray(memes)) { %>
           <% memes.forEach(function(meme) { %>
-            <tr class="<%= viewedMemes.includes(meme.id) ? 'table-success' : '' %>">
+            <tr class="<%= viewedMemes.includes(meme.id) ? 'table-success' : '' %>"><!--When meme-details are viewed, the meme row changes color to green-->
               <!--ID-->
             <th scope="row">
               <%= meme.id %>
