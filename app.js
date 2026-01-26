@@ -60,7 +60,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // This code is like a festival bracelet when entering a festival
-app.use(session({
+app.use(session(
+{
 	// Signing session-ID when entering a new session
 	secret: 'supersecretkey',
 	// No resave if no changes has been made
