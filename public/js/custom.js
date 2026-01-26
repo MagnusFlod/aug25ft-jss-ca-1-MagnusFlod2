@@ -1,5 +1,3 @@
-
-
 // When the document is loaded several functions are ready to run
 document.addEventListener("DOMContentLoaded", function()
 {
